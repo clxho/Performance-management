@@ -8,6 +8,10 @@ const cors = require('@koa/cors')
 const koabody = require('koa-body')
 // 引入注册中间件模块
 const registerRouter = require('./routers/routers_index')
+const path = require('path')
+
+const koaStatic = require('koa-static')
+app.use(koaStatic(path.resolve(__dirname,'../public')))
 
 
 // 连接数据库
