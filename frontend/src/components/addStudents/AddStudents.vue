@@ -32,7 +32,7 @@
             v-for="(item, index) in Form.ProfessionalRequired"
             :key="index"
           >
-            <el-input v-model="addForm[item.value]"></el-input>
+            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
           </el-form-item>
         </div>
         <!-- 公共必修 -->
@@ -43,7 +43,7 @@
             v-for="(item, index) in Form.PublicCompulsory"
             :key="index"
           >
-            <el-input v-model="addForm[item.value]"></el-input>
+            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
           </el-form-item>
         </div>
         <!-- 专业实践 -->
@@ -54,7 +54,7 @@
             v-for="(item, index) in Form.ProfessionalPractice"
             :key="index"
           >
-            <el-input v-model="addForm[item.value]"></el-input>
+            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
           </el-form-item>
         </div>
         <!--  通识必选-->
@@ -65,7 +65,7 @@
             v-for="(item, index) in Form.Generalknowledge"
             :key="index"
           >
-            <el-input v-model="addForm[item.value]"></el-input>
+            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
           </el-form-item>
         </div>
         <!--  体测-->
@@ -76,7 +76,7 @@
             v-for="(item, index) in Form.physicalTest"
             :key="index"
           >
-            <el-input v-model="addForm[item.value]"></el-input>
+            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
           </el-form-item>
         </div>
       </el-form>
@@ -96,7 +96,7 @@ export default {
       addForm: {
         studentName: "",
         studentNum: "",
-        studentClass: "",
+        studentClass: "工程二班",
       },
       Form: {},
     };
@@ -154,7 +154,7 @@ export default {
     flex-wrap: wrap;
     .el-form-item {
       width: 170px;
-      margin-bottom: 10px;
+      margin: 0 5px 10px;
     }
   }
 }

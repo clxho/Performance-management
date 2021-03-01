@@ -9,8 +9,7 @@
       </div>
       <!-- 头部右边 -->
       <div class="right">
-        <div class="hello-msg">你好 xxx</div>
-        <div class="logout">退出</div>
+        <div class="logout" @click="logout">退出</div>
       </div>
     </div>
     <!-- 头部 end -->
@@ -36,6 +35,12 @@ export default {
   components: {
     NavMenu,
   },
+  methods: {
+    logout() {
+      window.sessionStorage.clear()
+      this.$router.push("/login")
+    }
+  }
 };
 </script>
 

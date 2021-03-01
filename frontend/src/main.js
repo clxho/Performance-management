@@ -8,10 +8,12 @@ import './plugins/element.js'
 import './assets/css/global.css'
 import 'element-ui/lib/theme-chalk/index.css';
 
+
 Vue.prototype.$echarts = window.echarts
 
 Vue.prototype.$http = axios
 axios.defaults.baseURL = 'http://localhost:3004/'
+
 
 Vue.config.productionTip = false
 

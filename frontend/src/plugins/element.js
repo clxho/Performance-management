@@ -44,7 +44,8 @@ import {
   MenuItemGroup,
   Radio,
   RadioGroup,
-  RadioButton
+  RadioButton,
+  InputNumber,
 
   
 
@@ -95,6 +96,7 @@ Vue.use(MenuItemGroup)
 Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(RadioButton);
+Vue.use(InputNumber)
 
 
 Vue.prototype.$message = Message

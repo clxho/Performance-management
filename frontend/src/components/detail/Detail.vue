@@ -2,9 +2,11 @@
   <div>
     <professional-required />
     <public-compulsory />
-    <professional-practice/>
-    <generalknowledge/>
+    <professional-practice />
+    <generalknowledge />
     <physical-test />
+    <radar />
+    <el-button type="primary" round @click="goBack">返回</el-button>
   </div>
 </template>
 
@@ -14,11 +16,32 @@ import Generalknowledge from "./generalknowledge/Generalknowledge.vue";
 import ProfessionalRequired from "./professionalRequired/ProfessionalRequired.vue";
 import PublicCompulsory from "./publicCompulsory/PublicCompulsory.vue";
 import ProfessionalPractice from "./professionalPractice/ProfessionalPractice.vue";
+import Radar from "./radar/Radar.vue";
 
 export default {
-  components: { PhysicalTest, ProfessionalRequired, PublicCompulsory,ProfessionalPractice,Generalknowledge },
+  components: {
+    PhysicalTest,
+    ProfessionalRequired,
+    PublicCompulsory,
+    ProfessionalPractice,
+    Generalknowledge,
+    Radar,
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1)
+    }
+  }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.el-button {
+  position: fixed;
+  top: 100px;
+  right: 10px;
+}
 </style>
