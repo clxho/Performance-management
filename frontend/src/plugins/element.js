@@ -46,6 +46,10 @@ import {
   RadioGroup,
   RadioButton,
   InputNumber,
+  Calendar,
+  Carousel,
+  CarouselItem,
+
 
   
 
@@ -97,6 +101,13 @@ Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(RadioButton);
 Vue.use(InputNumber)
+Vue.use(Calendar)
+Vue.use(Carousel)
+Vue.use(CarouselItem)
+
+
+
+
 
 
 Vue.prototype.$message = Message

@@ -143,6 +143,7 @@ router.post('/add', async (ctx) => {
   const NumRes = await Students.findOne({
     "basicInfo.studentNum": studentNum
   })
+  console.log(NumRes);
   // 如果存在
   if (NumRes) {
     ctx.body = {
@@ -616,13 +617,14 @@ router.get('/byName', async (ctx) => {
   }
 
   // 从数据库中查找学生
-  const gotStudents = await Students.find(query).exec()
+  const gotStudents = await Students.findOne(query).exec()
+
 
   // 获取学生列表失败
   if (!gotStudents) {
     ctx.body = {
       meta: {
-        msg: '获取学生信息失败',
+        msg: '学生不存在',
         code: 0
       }
     }
@@ -680,7 +682,7 @@ router.get('/:id', async (ctx) => {
   // 根据id查找学生
   const gotStudent = await Students.findOne({
     _id: id
-  })
+  }).exec()
   // 查找失败
   if (!gotStudent) {
     ctx.body = {

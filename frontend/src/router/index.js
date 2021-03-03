@@ -5,6 +5,18 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [{
+    path: "/user",
+    name: "user",
+    component: () => import( /* webpackChunkName: "user" */ '../views/user/User.vue'),
+
+  },
+  {
+
+    path: "/data/:id",
+    component: () => import( /* webpackChunkName: "auth" */ '../views/user/Data.vue'),
+
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import( /* webpackChunkName: "auth" */ '../views/login/Login.vue'),
@@ -46,10 +58,12 @@ const router = new VueRouter({
 })
 
 //路由导航守卫
-router.beforeEach((to, from ,next) => {
-  if(to.path === '/login') return next()
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') return next()
+  if (to.path === '/user') return next()
+  if (from.path === "/user") return next()
   const tokenStr = window.sessionStorage.getItem("token")
-  if(!tokenStr) return next('/login')
+  if (!tokenStr) return next('/login')
   next()
 })
 export default router
