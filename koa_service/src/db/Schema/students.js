@@ -30,6 +30,8 @@ const studentSchema = new mongoose.Schema({
     ProfessionalPractice: [],
     //通识必选
     Generalknowledge: [],
+    //综合创新实践 
+    ComprehensiveInnovationPractice: [],
     // 体测
     physicalTest: []
 

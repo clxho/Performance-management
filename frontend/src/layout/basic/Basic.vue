@@ -5,7 +5,7 @@
       <!-- 头部左边 -->
       <div class="left">
         <img src="../../assets/school.png" alt="" />
-        <div class="title">毕业生成绩管理系统</div>
+        <div class="title">大学毕业生多维综合评价系统</div>
       </div>
       <!-- 头部右边 -->
       <div class="right">

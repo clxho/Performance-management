@@ -216,6 +216,20 @@ router.get('/form', async (ctx) => {
           value: "EthnicTheory"
         }
       ],
+      //综合创新实践 3个
+      ComprehensiveInnovationPractice: [{
+          key: "思想政治实践活动",
+          value: "IdeologicalPolitical"
+        },
+        {
+          key: "读书活动",
+          value: "ReadingActivities"
+        },
+        {
+          key: "创新创业实践",
+          value: "InnovationEntrepreneurship"
+        },
+      ],
       // 体测
       physicalTest: [{
           key: "第一学年",

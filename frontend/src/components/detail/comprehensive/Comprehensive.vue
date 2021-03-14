@@ -1,5 +1,5 @@
 <template>
-  <!-- 通识必选 -->
+  <!-- 综合创新实践 -->
   <div class="content">
     <div ref="course_ref"></div>
   </div>
@@ -23,8 +23,8 @@ export default {
       const id = this.$route.params.id;
       // 根据id获取学生数据
       const { data: res } = await this.$http.get("students/" + id);
-      // 筛选通识必选一项
-      this.data = res.data.Generalknowledge;
+      // 综合创新实践
+      this.data = res.data.ComprehensiveInnovationPractice;
       // 获取数据后更新图表
       this.updateChart();
     },
@@ -34,41 +34,50 @@ export default {
     },
     // 更新图表
     updateChart() {
-      // x轴
-      const dataAxis = this.data.map((item) => {
-        return item.courseName;
-      });
-      // y轴
-      const data = this.data.map((item) => {
-        return item.courseValue;
+      const chartData = this.data.map((item) => {
+        return {
+          value: item.courseValue,
+          name: item.courseName,
+        };
       });
       const option = {
          title: {
-          text: "通识必选",
-          subtext: "6门",
+          text: "综合创新实践",
+          subtext: "3门",
         },
-        xAxis: {
-          axisLabel: {
-            interval: 0, //X轴信息全部展示
-          },
-          type: "category",
-          data: dataAxis,
+        tooltip: {
+          trigger: "item",
         },
-        yAxis: {
-          type: "value",
+        legend: {
+          top: "5%",
+          left: "center",
         },
         series: [
           {
-            data: data,
-            type: "line",
-            markPoint: {
-              data: [{ type: "max" }, { type: "min" }],
+            name: "综合创新实践",
+            type: "pie",
+            radius: ["40%", "70%"],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: "#fff",
+              borderWidth: 2,
             },
-            markLine: {
-              data: [{ type: "average" }],
+            label: {
+              show: false,
+              position: "center",
             },
-            label: {show: true},
-            smooth: true
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "40",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: false,
+            },
+           data:chartData
           },
         ],
       };

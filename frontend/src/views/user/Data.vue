@@ -2,10 +2,11 @@
   <div class="container">
     <professional-required class="item" />
     <public-compulsory class="item" />
-    <professional-practice class="item"/>
-    <generalknowledge class="item"/>
-    <physical-test class="item"/>
-    <radar class="item"/>
+    <professional-practice class="item" />
+    <generalknowledge class="item" />
+    <physical-test class="item" />
+    <comprehensive class="item" />
+    <radar class="item" />
     <el-button type="primary" round @click="goBack">返回</el-button>
   </div>
 </template>
@@ -17,6 +18,7 @@ import ProfessionalRequired from "../../components/detail/professionalRequired/P
 import PublicCompulsory from "../../components/detail/publicCompulsory/PublicCompulsory.vue";
 import ProfessionalPractice from "../../components/detail/professionalPractice/ProfessionalPractice.vue";
 import Radar from "../../components/detail/radar/Radar.vue";
+import Comprehensive from "../../components/detail/comprehensive/Comprehensive";
 
 export default {
   components: {
@@ -25,16 +27,18 @@ export default {
     PublicCompulsory,
     ProfessionalPractice,
     Generalknowledge,
+    Comprehensive,
     Radar,
+    Comprehensive,
   },
   data() {
-    return {}
+    return {};
   },
   methods: {
     goBack() {
-      this.$router.go(-1)
-    }
-  }
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 
@@ -43,7 +47,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   .item {
-    width:710px;
+    width: 710px;
   }
 }
 .el-button {

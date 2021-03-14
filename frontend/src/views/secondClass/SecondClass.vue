@@ -5,7 +5,7 @@
       <div slot="header">
         <span>学生列表</span>
         <el-button type="text" class="addBtn" @click="addIsVisible = true"
-          >添加用户</el-button
+          >添加学生</el-button
         >
         <!-- 搜索框 -->
         <el-input placeholder="根据姓名搜索" class="searchInput"  v-model="keyWord">
@@ -124,14 +124,24 @@ export default {
     },
     // 搜索功能
     async search() {
+      //如果输如框为空
+      if(this.keyWord== "") {
+        this.getStudents()
+        return
+      }
       const { data: res } = await this.$http.get("students/byName", {
         params: {
           studentName: this.keyWord,
         },
       });
       result(res);
-      // 筛选出basicInfo数据
-      this.tableData = res.data.map((item) => {
+      if (res.meta.code!= 1) {
+        return
+      }
+   // 筛选出basicInfo数据
+      const newArry = [res.data]
+     
+      this.tableData = newArry.map((item) => {
         return {
           studentName: item.basicInfo.studentName,
           studentNum: item.basicInfo.studentNum,

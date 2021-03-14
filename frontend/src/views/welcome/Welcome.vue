@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>欢迎使用毕业生成绩管理后台</h1>
+    <h1>欢迎使用大学毕业生多维综合评价系统后台</h1>
     <div class="container">
       <div class="carousel">
         <el-carousel

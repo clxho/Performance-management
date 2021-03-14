@@ -4,6 +4,7 @@
     <public-compulsory />
     <professional-practice />
     <generalknowledge />
+    <comprehensive />
     <physical-test />
     <radar />
     <el-button type="primary" round @click="goBack">返回</el-button>
@@ -16,6 +17,7 @@ import Generalknowledge from "./generalknowledge/Generalknowledge.vue";
 import ProfessionalRequired from "./professionalRequired/ProfessionalRequired.vue";
 import PublicCompulsory from "./publicCompulsory/PublicCompulsory.vue";
 import ProfessionalPractice from "./professionalPractice/ProfessionalPractice.vue";
+import Comprehensive from "./comprehensive/Comprehensive";
 import Radar from "./radar/Radar.vue";
 
 export default {
@@ -25,16 +27,17 @@ export default {
     PublicCompulsory,
     ProfessionalPractice,
     Generalknowledge,
+    Comprehensive,
     Radar,
   },
   data() {
-    return {}
+    return {};
   },
   methods: {
     goBack() {
-      this.$router.go(-1)
-    }
-  }
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 

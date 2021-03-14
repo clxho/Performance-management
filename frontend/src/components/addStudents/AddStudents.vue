@@ -7,7 +7,7 @@
       fullscreen
     >
       <!-- 添加表单 -->
-      <el-form :model="addForm" class="Form" >
+      <el-form :model="addForm" class="Form">
         <!-- 基本信息 -->
         <div>
           <div>基本信息</div>
@@ -32,7 +32,13 @@
             v-for="(item, index) in Form.ProfessionalRequired"
             :key="index"
           >
-            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="addForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!-- 公共必修 -->
@@ -43,7 +49,13 @@
             v-for="(item, index) in Form.PublicCompulsory"
             :key="index"
           >
-            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="addForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!-- 专业实践 -->
@@ -54,7 +66,13 @@
             v-for="(item, index) in Form.ProfessionalPractice"
             :key="index"
           >
-            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="addForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!--  通识必选-->
@@ -65,18 +83,47 @@
             v-for="(item, index) in Form.Generalknowledge"
             :key="index"
           >
-            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="addForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
+          </el-form-item>
+        </div>
+        <!--  综合创新实践-->
+        <div>
+          <div>综合创新实践</div>
+          <el-form-item
+            :label="item.key"
+            v-for="(item, index) in Form.ComprehensiveInnovationPractice"
+            :key="index"
+          >
+            <el-input-number
+              v-model="addForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!--  体测-->
-        <div>体测</div>
         <div>
+          <div>体测</div>
           <el-form-item
             :label="item.key"
             v-for="(item, index) in Form.physicalTest"
             :key="index"
           >
-            <el-input-number v-model="addForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="addForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
       </el-form>
@@ -124,10 +171,10 @@ export default {
       // 提交添加表单
       const { data: res } = await this.$http.post("students/add", this.addForm);
       // 显示提交结果
-      result(res)
+      result(res);
       // 如果表单提交有误阻止重置表单
-      if(res.meta.code === 0) {
-        return
+      if (res.meta.code === 0) {
+        return;
       }
       // 成功提交、重置表单
       this.addForm = {
@@ -135,7 +182,7 @@ export default {
         studentNum: "",
         studentClass: "工程一班",
       };
-      this.$emit("getStudents")
+      this.$emit("getStudents");
     },
     // 获取学生信息表单数据
     async getForm() {

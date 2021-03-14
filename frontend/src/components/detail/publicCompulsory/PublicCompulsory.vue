@@ -51,6 +51,7 @@ export default {
           axisLabel: {
             interval: 0, //X轴信息全部展示
             rotate: -60, //60 标签倾斜的角度
+             inside: true,
           },
           type: "category",
           data: dataAxis,

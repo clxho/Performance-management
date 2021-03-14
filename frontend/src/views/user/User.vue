@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container">
+
       <!-- 搜索框 -->
       <el-input
         placeholder="请输入姓名查询"
@@ -48,8 +49,15 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+ width: 1440px;
+ height: 720px;
+ background-image: url("../../assets/img/320.jpeg");
+ background-size:100% 100%;
+.el-input {
+  position: fixed;
+  top: 200px;
+  left: 450px;
   width: 500px;
-  height: 500px;
-  margin: 220px auto;
+}
 }
 </style>

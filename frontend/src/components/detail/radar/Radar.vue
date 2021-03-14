@@ -96,10 +96,10 @@ export default {
       this.data = res.data;
       // 将成绩部分整合
       this.courseData = this.courseData
-        .concat(this.data.Generalknowledge)
         .concat(this.data.ProfessionalPractice)
         .concat(this.data.ProfessionalRequired)
-        .concat(this.data.PublicCompulsory);
+        .concat(this.data.PublicCompulsory)
+        .concat(this.data.ComprehensiveInnovationPractice)
       // 获取数据后更新图表
       this.updateChart();
     },
@@ -111,7 +111,7 @@ export default {
     updateChart() {
       const option = {
         title: {
-          text: "能力分析",
+          text: "多维综合分析",
         },
         tooltip: {},
         radar: {

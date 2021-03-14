@@ -12,7 +12,6 @@
           placeholder="根据姓名搜索"
           class="searchInput"
           v-model="keyWord"
-
         >
           <el-button
             slot="append"
@@ -140,7 +139,9 @@ export default {
       });
       result(res);
       // 筛选出basicInfo数据
-      this.tableData = res.data.map((item) => {
+      const newArry = [res.data]
+     
+      this.tableData = newArry.map((item) => {
         return {
           studentName: item.basicInfo.studentName,
           studentNum: item.basicInfo.studentNum,
@@ -148,9 +149,9 @@ export default {
           _id: item._id,
         };
       });
+
+  
     },
-
-
   },
 };
 </script>

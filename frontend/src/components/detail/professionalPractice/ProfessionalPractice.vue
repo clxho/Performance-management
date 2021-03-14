@@ -43,16 +43,17 @@ export default {
         return item.courseValue;
       });
       const option = {
-         title: {
+        title: {
           text: "专业实践",
           subtext: "6门",
         },
         xAxis: {
-          axisLabel: {
-            interval: 0, //X轴信息全部展示
-          },
           type: "category",
           data: dataAxis,
+          axisLabel: {
+            interval: 0, //X轴信息全部展示
+            rotate: -60, //60 标签倾斜的角度
+          },
         },
         yAxis: {
           type: "value",
@@ -60,17 +61,22 @@ export default {
         series: [
           {
             data: data,
-            type: "line",
+            type: "bar",
             markPoint: {
               data: [{ type: "max" }, { type: "min" }],
             },
             markLine: {
               data: [{ type: "average" }],
             },
-            label: {show: true},
+            label: { show: true },
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
           },
         ],
       };
+
       this.chartInstance.setOption(option);
     },
   },

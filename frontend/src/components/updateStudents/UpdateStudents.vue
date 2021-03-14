@@ -7,7 +7,7 @@
       fullscreen
     >
       <!-- 编辑表单 -->
-          <el-form :model="updateForm" class="Form" >
+      <el-form :model="updateForm" class="Form">
         <!-- 基本信息 -->
         <div>
           <div>基本信息</div>
@@ -32,7 +32,13 @@
             v-for="(item, index) in Form.ProfessionalRequired"
             :key="index"
           >
-            <el-input-number v-model="updateForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="updateForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!-- 公共必修 -->
@@ -43,7 +49,13 @@
             v-for="(item, index) in Form.PublicCompulsory"
             :key="index"
           >
-            <el-input-number v-model="updateForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="updateForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!-- 专业实践 -->
@@ -54,7 +66,13 @@
             v-for="(item, index) in Form.ProfessionalPractice"
             :key="index"
           >
-            <el-input-number v-model="updateForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="updateForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!--  通识必选-->
@@ -65,18 +83,47 @@
             v-for="(item, index) in Form.Generalknowledge"
             :key="index"
           >
-            <el-input-number v-model="updateForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="updateForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
+          </el-form-item>
+        </div>
+        <!--  综合创新实践-->
+        <div>
+          <div>综合创新实践</div>
+          <el-form-item
+            :label="item.key"
+            v-for="(item, index) in Form.ComprehensiveInnovationPractice"
+            :key="index"
+          >
+            <el-input-number
+              v-model="updateForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
         <!--  体测-->
-        <div>体测</div>
         <div>
+          <div>体测</div>
           <el-form-item
             :label="item.key"
             v-for="(item, index) in Form.physicalTest"
             :key="index"
           >
-            <el-input-number v-model="updateForm[item.value]" controls-position="right" size="mini" :min="0" :max="100"></el-input-number>
+            <el-input-number
+              v-model="updateForm[item.value]"
+              controls-position="right"
+              size="mini"
+              :min="0"
+              :max="100"
+            ></el-input-number>
           </el-form-item>
         </div>
       </el-form>
@@ -113,6 +160,7 @@ export default {
         ProfessionalPractice,
         ProfessionalRequired,
         PublicCompulsory,
+        ComprehensiveInnovationPractice,
         physicalTest,
       } = res.data;
       Generalknowledge.forEach((item) => {
@@ -140,7 +188,12 @@ export default {
         delete item.courseValue;
       });
       const e = Object.assign({}, ...physicalTest);
-      this.updateForm = Object.assign({}, a, b, c, d, e, basicInfo);
+      ComprehensiveInnovationPractice.forEach((item) => {
+        delete item.courseName;
+        delete item.courseValue;
+      });
+      const f = Object.assign({}, ...ComprehensiveInnovationPractice);
+      this.updateForm = Object.assign({}, a, b, c, d, e, f,basicInfo);
       this.updateForm.id = newVal;
     },
   },
@@ -158,11 +211,14 @@ export default {
     // 提交更新表单
     async submit() {
       // 发送更新请求
-      const { data: res } = await this.$http.post("students/update", this.updateForm);
+      const { data: res } = await this.$http.post(
+        "students/update",
+        this.updateForm
+      );
       result(res);
       // 关闭对话框
       this.$emit("updateClose");
-      this.$emit("getStudents")
+      this.$emit("getStudents");
     },
   },
 };
@@ -176,7 +232,7 @@ export default {
     flex-wrap: wrap;
     .el-form-item {
       width: 170px;
-     margin: 0 5px 10px;
+      margin: 0 5px 10px;
     }
   }
 }
