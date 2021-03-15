@@ -1,2 +1,4 @@
 koa_service/node_modules
+frontend/node_modules
+koa_service/public
 .DS_Store
